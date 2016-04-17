@@ -42,11 +42,36 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="module-fraud_backend.core.classification_result">
+<span id="fraud-backend-core-classification-result-module"></span><h2>fraud_backend.core.classification_result module<a class="headerlink" href="#module-fraud_backend.core.classification_result" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="fraud_backend.core.classification_result.ClassificationResult">
+<em class="property">class </em><code class="descclassname">fraud_backend.core.classification_result.</code><code class="descname">ClassificationResult</code><span class="sig-paren">(</span><em>label=None</em>, <em>score=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/classification_result.html#ClassificationResult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.classification_result.ClassificationResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>This class describes the classification result.</p>
+<p>It basically consists of a label such as
+&#8216;FRAUD / NOT_FRAUD&#8217; and a value/score that is a
+probability of the predicted label.</p>
+<dl class="attribute">
+<dt id="fraud_backend.core.classification_result.ClassificationResult.label">
+<code class="descname">label</code><a class="headerlink" href="#fraud_backend.core.classification_result.ClassificationResult.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the label.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.classification_result.ClassificationResult.score">
+<code class="descname">score</code><a class="headerlink" href="#fraud_backend.core.classification_result.ClassificationResult.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the score.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-fraud_backend.core.feature">
 <span id="fraud-backend-core-feature-module"></span><h2>fraud_backend.core.feature module<a class="headerlink" href="#module-fraud_backend.core.feature" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="fraud_backend.core.feature.Feature">
-<em class="property">class </em><code class="descclassname">fraud_backend.core.feature.</code><code class="descname">Feature</code><span class="sig-paren">(</span><em>description=None</em>, <em>kind=None</em>, <em>name=None</em>, <em>value=None</em>, <em>position=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/feature.html#Feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.feature.Feature" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fraud_backend.core.feature.</code><code class="descname">Feature</code><span class="sig-paren">(</span><em>description=None</em>, <em>kind=None</em>, <em>name=None</em>, <em>value=None</em>, <em>position=None</em>, <em>is_target=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/feature.html#Feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.feature.Feature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p>This class describes a feature.</p>
 <p>A Feature is essentially an attribute of a more
@@ -57,6 +82,12 @@ bellow.</p>
 <dt id="fraud_backend.core.feature.Feature.description">
 <code class="descname">description</code><a class="headerlink" href="#fraud_backend.core.feature.Feature.description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the feature&#8217;s description.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.feature.Feature.is_target">
+<code class="descname">is_target</code><a class="headerlink" href="#fraud_backend.core.feature.Feature.is_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if feature is a target variable.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -185,7 +216,7 @@ bellow.</p>
 <p>Init file of <code class="docutils literal"><span class="pre">core</span></code> package.</p>
 <dl class="class">
 <dt id="fraud_backend.core.Feature">
-<em class="property">class </em><code class="descclassname">fraud_backend.core.</code><code class="descname">Feature</code><span class="sig-paren">(</span><em>description=None</em>, <em>kind=None</em>, <em>name=None</em>, <em>value=None</em>, <em>position=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/feature.html#Feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.Feature" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fraud_backend.core.</code><code class="descname">Feature</code><span class="sig-paren">(</span><em>description=None</em>, <em>kind=None</em>, <em>name=None</em>, <em>value=None</em>, <em>position=None</em>, <em>is_target=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/feature.html#Feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.Feature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p>This class describes a feature.</p>
 <p>A Feature is essentially an attribute of a more
@@ -196,6 +227,12 @@ bellow.</p>
 <dt id="fraud_backend.core.Feature.description">
 <code class="descname">description</code><a class="headerlink" href="#fraud_backend.core.Feature.description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the feature&#8217;s description.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.Feature.is_target">
+<code class="descname">is_target</code><a class="headerlink" href="#fraud_backend.core.Feature.is_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if feature is a target variable.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -312,6 +349,28 @@ considered to be important.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="fraud_backend.core.ClassificationResult">
+<em class="property">class </em><code class="descclassname">fraud_backend.core.</code><code class="descname">ClassificationResult</code><span class="sig-paren">(</span><em>label=None</em>, <em>score=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/classification_result.html#ClassificationResult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.ClassificationResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>This class describes the classification result.</p>
+<p>It basically consists of a label such as
+&#8216;FRAUD / NOT_FRAUD&#8217; and a value/score that is a
+probability of the predicted label.</p>
+<dl class="attribute">
+<dt id="fraud_backend.core.ClassificationResult.label">
+<code class="descname">label</code><a class="headerlink" href="#fraud_backend.core.ClassificationResult.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the label.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.ClassificationResult.score">
+<code class="descname">score</code><a class="headerlink" href="#fraud_backend.core.ClassificationResult.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the score.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -325,6 +384,7 @@ considered to be important.</p>
   <ul>
 <li><a class="reference internal" href="#">fraud_backend.core package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-fraud_backend.core.classification_result">fraud_backend.core.classification_result module</a></li>
 <li><a class="reference internal" href="#module-fraud_backend.core.feature">fraud_backend.core.feature module</a></li>
 <li><a class="reference internal" href="#module-fraud_backend.core.insight">fraud_backend.core.insight module</a></li>
 <li><a class="reference internal" href="#module-fraud_backend.core.transaction">fraud_backend.core.transaction module</a></li>

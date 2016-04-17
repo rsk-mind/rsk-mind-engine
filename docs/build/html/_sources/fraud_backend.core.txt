@@ -4,6 +4,14 @@ fraud_backend.core package
 Submodules
 ----------
 
+fraud_backend.core.classification_result module
+-----------------------------------------------
+
+.. automodule:: fraud_backend.core.classification_result
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 fraud_backend.core.feature module
 ---------------------------------
 

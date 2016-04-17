@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>fraud_backend.fraud_detection_engine.fraud_detection_engine &mdash; fraud_backend 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="fraud_backend 0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for fraud_backend.fraud_detection_engine.fraud_detection_engine</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="FraudDetectionEngine"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine">[docs]</a><span></span><span class="k">class</span> <span class="nc">FraudDetectionEngine</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot; Fraud Detection Engine.</span>
+
+<span class="sd">    This class is an abstract class that</span>
+<span class="sd">    will be subclassed for important ML</span>
+<span class="sd">    algorithms.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FraudDetectionEngine.train"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Train a model.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement train()&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FraudDetectionEngine.test"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.test">[docs]</a>    <span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot; Test the model against a test data set.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement test()&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FraudDetectionEngine.validate"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">thresshold</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Validate the model.</span>
+
+<span class="sd">        :param thresshold: the thresshold to be set</span>
+<span class="sd">        :type thresshold: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement validate()&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FraudDetectionEngine.classify"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.classify">[docs]</a>    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">transaction_instance</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Classify a transaction as fraud or not.</span>
+
+<span class="sd">        :param transaction_instance: the instance to be clasified</span>
+<span class="sd">        :type transaction_instance: Transaction</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement classify()&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FraudDetectionEngine.set_training_data"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.set_training_data">[docs]</a>    <span class="k">def</span> <span class="nf">set_training_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">training_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the training data set.</span>
+
+<span class="sd">        :param training_data: the set of transactions to use for training.</span>
+<span class="sd">        :type training_data: list of Transaction</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement set_training_data()&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FraudDetectionEngine.set_test_data"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.set_test_data">[docs]</a>    <span class="k">def</span> <span class="nf">set_test_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the test data set.</span>
+
+<span class="sd">        :param test_data: the set of transactions to use for testing.</span>
+<span class="sd">        :type test_data: list of Transaction</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement set_test_data()&quot;</span><span class="p">)</span></div></div>
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, RSK Project.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

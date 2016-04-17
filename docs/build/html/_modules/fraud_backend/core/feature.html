@@ -50,7 +50,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                 <span class="n">name</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+                 <span class="n">name</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+                 <span class="n">is_target</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create a new Feature object.</span>
 
 <span class="sd">        :param description: a text description of feature</span>
@@ -58,7 +59,13 @@
 <span class="sd">        :param name: name of feature</span>
 <span class="sd">        :param value: value of feature</span>
 <span class="sd">        :param position: position of feature inside a transaction</span>
-
+<span class="sd">        :param is_target: shows if feature is a label or not</span>
+<span class="sd">        :type description: str</span>
+<span class="sd">        :type kind: str</span>
+<span class="sd">        :type name: str</span>
+<span class="sd">        :type value: float</span>
+<span class="sd">        :type position: int</span>
+<span class="sd">        :type is_target: bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
@@ -66,6 +73,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_target</span> <span class="o">=</span> <span class="n">is_target</span>
 
 
     <span class="nd">@property</span>
@@ -122,10 +130,21 @@
         <span class="sd">&quot;&quot;&quot;Set feature&#39;s order.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__position</span> <span class="o">=</span> <span class="n">position</span>
 
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return true if feature is a target variable.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__is_target</span>
+
+    <span class="nd">@is_target.setter</span>
+    <span class="k">def</span> <span class="nf">is_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_target</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set feature&#39;s state.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__is_target</span> <span class="o">=</span> <span class="n">is_target</span>
+
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Represent a feature as a string.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="s2">&quot;Description: {}, Type: {}, Name: {}, Value: {}, Order: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span>
+        <span class="k">return</span> <span class="s2">&quot;Description: {}, Type: {}, Name: {}, Value: {}, Order: {}, Target Variable: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_target</span>
         <span class="p">)</span></div>
 </pre></div>
 

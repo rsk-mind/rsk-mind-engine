@@ -9,7 +9,8 @@ class Feature(object):
     """
 
     def __init__(self, description = None, kind = None,
-                 name = None, value = None, position = None):
+                 name = None, value = None, position = None,
+                 is_target = None):
         """Create a new Feature object.
 
         :param description: a text description of feature
@@ -17,7 +18,13 @@ class Feature(object):
         :param name: name of feature
         :param value: value of feature
         :param position: position of feature inside a transaction
-
+        :param is_target: shows if feature is a label or not
+        :type description: str
+        :type kind: str
+        :type name: str
+        :type value: float
+        :type position: int
+        :type is_target: bool
         """
 
         self.description = description
@@ -25,6 +32,7 @@ class Feature(object):
         self.name = name
         self.value = value
         self.position = position
+        self.is_target = is_target
 
 
     @property
@@ -81,8 +89,19 @@ class Feature(object):
         """Set feature's order."""
         self.__position = position
 
+
+    @property
+    def is_target(self):
+        """Return true if feature is a target variable."""
+        return self.__is_target
+
+    @is_target.setter
+    def is_target(self, is_target):
+        """Set feature's state."""
+        self.__is_target = is_target
+
     def __repr__(self):
         """Represent a feature as a string."""
-        return "Description: {}, Type: {}, Name: {}, Value: {}, Order: {}".format(
-            self.description, self.kind, self.name, self.value, self.position
+        return "Description: {}, Type: {}, Name: {}, Value: {}, Order: {}, Target Variable: {}".format(
+            self.description, self.kind, self.name, self.value, self.position, self.is_target
         )
