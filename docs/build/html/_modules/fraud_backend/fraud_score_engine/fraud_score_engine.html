@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fraud_backend.fraud_detection_engine.fraud_detection_engine &mdash; fraud_backend 0.1 documentation</title>
+    <title>fraud_backend.fraud_score_engine.fraud_score_engine &mdash; fraud_backend 0.1 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -38,25 +38,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for fraud_backend.fraud_detection_engine.fraud_detection_engine</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="FraudDetectionEngine"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine">[docs]</a><span></span><span class="k">class</span> <span class="nc">FraudDetectionEngine</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <h1>Source code for fraud_backend.fraud_score_engine.fraud_score_engine</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="FraudScoreEngine"><a class="viewcode-back" href="../../../fraud_backend.fraud_score_engine.html#fraud_backend.fraud_score_engine.fraud_score_engine.FraudScoreEngine">[docs]</a><span></span><span class="k">class</span> <span class="nc">FraudScoreEngine</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; Fraud Detection Engine.</span>
+    <span class="sd">&quot;&quot;&quot; Fraud Score Engine.</span>
 
 <span class="sd">    This class is an abstract class that</span>
 <span class="sd">    will be subclassed for important ML</span>
 <span class="sd">    algorithms.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="FraudDetectionEngine.train"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">():</span>
+<div class="viewcode-block" id="FraudScoreEngine.train"><a class="viewcode-back" href="../../../fraud_backend.fraud_score_engine.html#fraud_backend.fraud_score_engine.fraud_score_engine.FraudScoreEngine.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">():</span>
         <span class="sd">&quot;&quot;&quot;Train a model.&quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement train()&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="FraudDetectionEngine.test"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.test">[docs]</a>    <span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+<div class="viewcode-block" id="FraudScoreEngine.test"><a class="viewcode-back" href="../../../fraud_backend.fraud_score_engine.html#fraud_backend.fraud_score_engine.fraud_score_engine.FraudScoreEngine.test">[docs]</a>    <span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
         <span class="sd">&quot;&quot;&quot; Test the model against a test data set.&quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement test()&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="FraudDetectionEngine.validate"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">thresshold</span><span class="p">):</span>
+<div class="viewcode-block" id="FraudScoreEngine.validate"><a class="viewcode-back" href="../../../fraud_backend.fraud_score_engine.html#fraud_backend.fraud_score_engine.fraud_score_engine.FraudScoreEngine.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">thresshold</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Validate the model.</span>
 
 <span class="sd">        :param thresshold: the thresshold to be set</span>
@@ -64,7 +64,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement validate()&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="FraudDetectionEngine.classify"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.classify">[docs]</a>    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">transaction_instance</span><span class="p">):</span>
+<div class="viewcode-block" id="FraudScoreEngine.classify"><a class="viewcode-back" href="../../../fraud_backend.fraud_score_engine.html#fraud_backend.fraud_score_engine.fraud_score_engine.FraudScoreEngine.classify">[docs]</a>    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">transaction_instance</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Classify a transaction as fraud or not.</span>
 
 <span class="sd">        :param transaction_instance: the instance to be clasified</span>
@@ -72,7 +72,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement classify()&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="FraudDetectionEngine.set_training_data"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.set_training_data">[docs]</a>    <span class="k">def</span> <span class="nf">set_training_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">training_data</span><span class="p">):</span>
+<div class="viewcode-block" id="FraudScoreEngine.set_training_data"><a class="viewcode-back" href="../../../fraud_backend.fraud_score_engine.html#fraud_backend.fraud_score_engine.fraud_score_engine.FraudScoreEngine.set_training_data">[docs]</a>    <span class="k">def</span> <span class="nf">set_training_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">training_data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set the training data set.</span>
 
 <span class="sd">        :param training_data: the set of transactions to use for training.</span>
@@ -80,7 +80,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement set_training_data()&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="FraudDetectionEngine.set_test_data"><a class="viewcode-back" href="../../../fraud_backend.fraud_detection_engine.html#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.set_test_data">[docs]</a>    <span class="k">def</span> <span class="nf">set_test_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_data</span><span class="p">):</span>
+<div class="viewcode-block" id="FraudScoreEngine.set_test_data"><a class="viewcode-back" href="../../../fraud_backend.fraud_score_engine.html#fraud_backend.fraud_score_engine.fraud_score_engine.FraudScoreEngine.set_test_data">[docs]</a>    <span class="k">def</span> <span class="nf">set_test_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set the test data set.</span>
 
 <span class="sd">        :param test_data: the set of transactions to use for testing.</span>

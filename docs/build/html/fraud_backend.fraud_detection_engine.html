@@ -42,89 +42,11 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-fraud_backend.fraud_detection_engine.fraud_detection_engine">
-<span id="fraud-backend-fraud-detection-engine-fraud-detection-engine-module"></span><h2>fraud_backend.fraud_detection_engine.fraud_detection_engine module<a class="headerlink" href="#module-fraud_backend.fraud_detection_engine.fraud_detection_engine" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine">
-<em class="property">class </em><code class="descclassname">fraud_backend.fraud_detection_engine.fraud_detection_engine.</code><code class="descname">FraudDetectionEngine</code><a class="reference internal" href="_modules/fraud_backend/fraud_detection_engine/fraud_detection_engine.html#FraudDetectionEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Fraud Detection Engine.</p>
-<p>This class is an abstract class that
-will be subclassed for important ML
-algorithms.</p>
-<dl class="method">
-<dt id="fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.classify">
-<code class="descname">classify</code><span class="sig-paren">(</span><em>transaction_instance</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/fraud_detection_engine/fraud_detection_engine.html#FraudDetectionEngine.classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.classify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Classify a transaction as fraud or not.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>transaction_instance</strong> (<a class="reference internal" href="fraud_backend.core.html#fraud_backend.core.transaction.Transaction" title="fraud_backend.core.transaction.Transaction"><em>Transaction</em></a>) &#8211; the instance to be clasified</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.set_test_data">
-<code class="descname">set_test_data</code><span class="sig-paren">(</span><em>test_data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/fraud_detection_engine/fraud_detection_engine.html#FraudDetectionEngine.set_test_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.set_test_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the test data set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>test_data</strong> (<em>list of Transaction</em>) &#8211; the set of transactions to use for testing.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.set_training_data">
-<code class="descname">set_training_data</code><span class="sig-paren">(</span><em>training_data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/fraud_detection_engine/fraud_detection_engine.html#FraudDetectionEngine.set_training_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.set_training_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the training data set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>training_data</strong> (<em>list of Transaction</em>) &#8211; the set of transactions to use for training.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.test">
-<code class="descname">test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/fraud_detection_engine/fraud_detection_engine.html#FraudDetectionEngine.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test the model against a test data set.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.train">
-<code class="descname">train</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/fraud_detection_engine/fraud_detection_engine.html#FraudDetectionEngine.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.train" title="Permalink to this definition">¶</a></dt>
-<dd><p>Train a model.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.validate">
-<code class="descname">validate</code><span class="sig-paren">(</span><em>thresshold</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/fraud_detection_engine/fraud_detection_engine.html#FraudDetectionEngine.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.fraud_detection_engine.fraud_detection_engine.FraudDetectionEngine.validate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate the model.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>thresshold</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; the thresshold to be set</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="fraud-backend-fraud-detection-engine-fraud-detection-engine-module">
+<h2>fraud_backend.fraud_detection_engine.fraud_detection_engine module<a class="headerlink" href="#fraud-backend-fraud-detection-engine-fraud-detection-engine-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-fraud_backend.fraud_detection_engine">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fraud_backend.fraud_detection_engine" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -138,8 +60,8 @@ algorithms.</p>
   <ul>
 <li><a class="reference internal" href="#">fraud_backend.fraud_detection_engine package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-fraud_backend.fraud_detection_engine.fraud_detection_engine">fraud_backend.fraud_detection_engine.fraud_detection_engine module</a></li>
-<li><a class="reference internal" href="#module-fraud_backend.fraud_detection_engine">Module contents</a></li>
+<li><a class="reference internal" href="#fraud-backend-fraud-detection-engine-fraud-detection-engine-module">fraud_backend.fraud_detection_engine.fraud_detection_engine module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
