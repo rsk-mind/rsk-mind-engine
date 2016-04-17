@@ -31,7 +31,7 @@ class Transaction(object):
 
         :param index: the index of the feature object to be retrieved
         :returns: a feature
-        :rtype: Feature from
+        :rtype: Feature
         """
 
         if index >= 0 and index < self.__size:

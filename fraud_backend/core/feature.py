@@ -56,6 +56,7 @@ class Feature(object):
 
     @name.setter
     def name(self, name):
+        """Set feature's name."""
         self.__name = name
 
 
