@@ -6,4 +6,6 @@ setup(name='fraud_backend',
       author_email='',
       license='MIT',
       packages=['fraud_backend'],
+      # dependent packages
+      install_requires=[],
       zip_safe=False)

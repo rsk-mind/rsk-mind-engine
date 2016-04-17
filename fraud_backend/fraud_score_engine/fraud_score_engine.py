@@ -1,6 +1,6 @@
-class FraudDetectionEngine(object):
+class FraudScoreEngine(object):
 
-    """ Fraud Detection Engine.
+    """ Fraud Score Engine.
 
     This class is an abstract class that
     will be subclassed for important ML
