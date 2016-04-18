@@ -13,6 +13,9 @@ class Transaction(object):
 
         """The list of features."""
         self.transaction = []
+        """The id of the transaction."""
+        self.id = None
+        """The size of features of a transaction."""
         self.__size = 0
 
 
@@ -46,10 +49,20 @@ class Transaction(object):
         """
         return self.__size
 
+    @property
+    def id(self):
+        """Get transaction's id."""
+        return self.__id
+
+    @id.setter
+    def id(self, id):
+        """Set transaction's id."""
+        self.__id = id
+
     def __repr__(self):
         """Represent a Transaction as a string."""
 
-        result = ""
+        result = "Transaction id={}\n".format(self.id)
         for index in range(0, self.__size):
             result += str(self.transaction[index])+"\n"
         result += "Size: {}".format(self.__size)

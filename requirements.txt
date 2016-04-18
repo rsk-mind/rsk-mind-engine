@@ -1,1 +1,4 @@
 Sphinx
+numpy
+# for OSX users: scipy needs a fortran compiler so do `brew install gfortran`
+scipy

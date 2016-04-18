@@ -7,5 +7,8 @@ setup(name='fraud_backend',
       license='MIT',
       packages=['fraud_backend'],
       # dependent packages
-      install_requires=[],
+      install_requires=[
+        'numpy',
+        'scipy'
+      ],
       zip_safe=False)
