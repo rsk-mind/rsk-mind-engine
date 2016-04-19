@@ -40,7 +40,7 @@ class Transaction(object):
         if index >= 0 and index < self.__size:
             return self.transaction[index]
 
-
+    @property
     def number_of_features(self):
         """Get the number of features.
 

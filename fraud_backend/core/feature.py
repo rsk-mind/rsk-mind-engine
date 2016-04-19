@@ -1,3 +1,5 @@
+from .feature_type import FeatureType
+
 class Feature(object):
     """This class describes a feature.
 
@@ -18,9 +20,9 @@ class Feature(object):
         :param name: name of feature
         :param value: value of feature
         :param position: position of feature inside a transaction
-        :param is_target: shows if feature is a label or not
+        :param is_target: shows if feature is target variable or predictor
         :type description: str
-        :type kind: str
+        :type kind: int
         :type name: str
         :type value: float
         :type position: int
@@ -54,7 +56,10 @@ class Feature(object):
     @kind.setter
     def kind(self, kind):
         """Set feature's type."""
-        self.__kind = kind
+        if kind in FeatureType.types.keys():
+            self.__kind = kind
+        else:
+            self.kind = FeatureType.BINARY
 
 
     @property
@@ -103,5 +108,6 @@ class Feature(object):
     def __repr__(self):
         """Represent a feature as a string."""
         return "Description: {}, Type: {}, Name: {}, Value: {}, Order: {}, Target Variable: {}".format(
-            self.description, self.kind, self.name, self.value, self.position, self.is_target
+            self.description, FeatureType.types[self.kind],
+            self.name, self.value, self.position, self.is_target
         )
