@@ -12,7 +12,8 @@ setup(
         # dependent packages
         install_requires=[
             'numpy',
-            'scipy'
+            'scipy',
+            'geoip2'
             ],
         extras_require = {
             'docs': ['sphinx']

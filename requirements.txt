@@ -1,4 +1,12 @@
+3# for documentation
 Sphinx
+
+
+# for mathematics
 numpy
 # for OSX users: scipy needs a fortran compiler so do `brew install gfortran`
 scipy
+
+
+# for GeoIP
+geoip2
