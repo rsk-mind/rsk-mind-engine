@@ -1,9 +1,10 @@
-from .status_type import StatusType
-from .geoip_country_wrapper import GeoipCountryWrapper
-from .transaction_type import TransactionType
-from .time_period import TimePeriod
-from .feature import Feature
-from .transaction import Transaction
+from ..core.status_type import StatusType
+from ..core.geoip_country_wrapper import GeoipCountryWrapper
+from ..core.transaction_type import TransactionType
+from ..core.time_period import TimePeriod
+from ..core.feature import Feature
+from ..core.transaction import Transaction
+from ..iso_codes import geoname
 import datetime
 
 class Transformation(object):
@@ -15,10 +16,8 @@ class Transformation(object):
     classifiers.
     """
 
-    def __init__(self):
-        pass
-
-    def transform_row(self, transaction_row):
+    @classmethod
+    def transform_row(cls, transaction_row):
         """Transform a row.
 
         :param transaction_row: a transaction as a python dictionary
@@ -27,10 +26,15 @@ class Transformation(object):
         transformed = Transaction()
 
         # iso code source iban
-        # transaction_row['src_iban_iso']
+        src_geonameid = geoname[transaction_row['src_iban_iso']]
+        src_geonameid_feature = Feature(name='SRC_GEONAME_ID', position=0, value=src_geonameid, is_target=False)
+        transformed.add_feature(src_geonameid_feature)
 
         # iso code destination iban
         # transaction_row['dst_iban_iso']
+        dst_geonameid = geoname[transaction_row['dst_iban_iso']]
+        dst_geonameid_feature = Feature(name='DST_GEONAME_ID', position=1, value=dst_geonameid, is_target=False)
+        transformed.add_feature(dst_geonameid_feature)
 
         # skip ibans index: [0, 1]
 
@@ -114,7 +118,8 @@ class Transformation(object):
 
         return transformed
 
-    def transform(self, transactions):
+    @classmethod
+    def transform(cls, transactions):
         """Transform a list of transactions."""
         transformed_transactions = []
 
@@ -123,6 +128,7 @@ class Transformation(object):
 
         return transformed_transactions
 
-    def matching_ips(ips):
-        match = ps[1:] == ips[:-1]
-        1 if match else 0
+    @classmethod
+    def matching_ips(cls, ips):
+        match = 1 if (ips[1:] == ips[:-1]) else 0
+        return match
