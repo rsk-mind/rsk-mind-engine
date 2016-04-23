@@ -6,11 +6,11 @@ class StatusType(object):
     CANCELLED, COMPLETED.
     """
 
-    DRAFT = 1
-    APPROVED = 2
-    PAUSED = 3
-    CANCELLED = 4
-    COMPLETED = 5
+    DRAFT = 0
+    APPROVED = 1
+    PAUSED = 2
+    CANCELLED = 3
+    COMPLETED = 4
 
     NUM_TO_STR = {
         DRAFT: "DRAFT",

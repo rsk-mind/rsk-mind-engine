@@ -5,6 +5,7 @@ from ..core.time_period import TimePeriod
 from ..core.feature import Feature
 from ..core.transaction import Transaction
 from ..iso_codes import geoname
+from ..iban_decode import decode
 import datetime
 
 class Transformation(object):
@@ -25,18 +26,16 @@ class Transformation(object):
         # row is a dictionary
         transformed = Transaction()
 
-        # iso code source iban
-        src_geonameid = geoname[transaction_row['src_iban_iso']]
+        # source iban
+        src_geonameid = int(decode(transaction_row['src_account_iban'])[1])
         src_geonameid_feature = Feature(name='SRC_GEONAME_ID', position=0, value=src_geonameid, is_target=False)
         transformed.add_feature(src_geonameid_feature)
 
         # iso code destination iban
         # transaction_row['dst_iban_iso']
-        dst_geonameid = geoname[transaction_row['dst_iban_iso']]
+        dst_geonameid = int(decode(transaction_row['dst_account_iban'])[1])
         dst_geonameid_feature = Feature(name='DST_GEONAME_ID', position=1, value=dst_geonameid, is_target=False)
         transformed.add_feature(dst_geonameid_feature)
-
-        # skip ibans index: [0, 1]
 
         # status index: 2
         status = transaction_row['status']

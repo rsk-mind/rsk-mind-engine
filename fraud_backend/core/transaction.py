@@ -40,6 +40,25 @@ class Transaction(object):
         if index >= 0 and index < self.__size:
             return self.transaction[index]
 
+    def get_predictors_values(self):
+        predictors = []
+        for feature in self.transaction:
+            if not feature.is_target:
+                predictors.append(feature.value)
+        return predictors
+
+    def get_target_value(self):
+        target = None
+        for feature in self.transaction:
+            if feature.is_target:
+                target = feature.value
+                break
+        return target
+
+
+    def get_all_features(self):
+        return self.transaction
+
     @property
     def number_of_features(self):
         """Get the number of features.

@@ -7,15 +7,15 @@ class FraudScoreEngine(object):
     algorithms.
     """
 
-    def train():
+    def train(self):
         """Train a model."""
         raise NotImplementedError("Subclasses must implement train()")
 
-    def test():
+    def test(self):
         """ Test the model against a test data set."""
         raise NotImplementedError("Subclasses must implement test()")
 
-    def validate(thresshold):
+    def validate(self, thresshold):
         """Validate the model.
 
         :param thresshold: the thresshold to be set
@@ -23,7 +23,7 @@ class FraudScoreEngine(object):
         """
         raise NotImplementedError("Subclasses must implement validate()")
 
-    def classify(transaction_instance):
+    def classify(self, transaction_instance):
         """Classify a transaction as fraud or not.
 
         :param transaction_instance: the instance to be clasified
@@ -46,4 +46,3 @@ class FraudScoreEngine(object):
         :type test_data: list of Transaction
         """
         raise NotImplementedError("Subclasses must implement set_test_data()")
-
