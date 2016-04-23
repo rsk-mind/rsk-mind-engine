@@ -7,7 +7,7 @@ class ClassificationResult(object):
     probability of the predicted label.
     """
 
-    def __init__(self, label = None, score = None):
+    def __init__(self, label=None, score=None):
         """Create a ClassificationResult object.
 
         :param label: a label 'FRAUD', 'NOT_FRAUD'

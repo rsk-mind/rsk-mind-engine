@@ -1,5 +1,6 @@
 from .feature_type import FeatureType
 
+
 class Feature(object):
     """This class describes a feature.
 
@@ -10,9 +11,9 @@ class Feature(object):
 
     """
 
-    def __init__(self, description = None, kind = None,
-                 name = None, value = None, position = None,
-                 is_target = None):
+    def __init__(self, description=None, kind=None,
+                 name=None, value=None, position=None,
+                 is_target=None):
         """Create a new Feature object.
 
         :param description: a text description of feature
@@ -36,7 +37,6 @@ class Feature(object):
         self.position = position
         self.is_target = is_target
 
-
     @property
     def description(self):
         """Return the feature's description."""
@@ -46,7 +46,6 @@ class Feature(object):
     def description(self, description):
         """Set feature's description."""
         self.__description = description
-
 
     @property
     def kind(self):
@@ -61,7 +60,6 @@ class Feature(object):
         else:
             self.kind = FeatureType.BINARY
 
-
     @property
     def name(self):
         """Return the feature's name."""
@@ -71,7 +69,6 @@ class Feature(object):
     def name(self, name):
         """Set feature's name."""
         self.__name = name
-
 
     @property
     def value(self):
@@ -83,7 +80,6 @@ class Feature(object):
         """Set feature's value."""
         self.__value = value
 
-
     @property
     def position(self):
         """Return the feature's order."""
@@ -93,7 +89,6 @@ class Feature(object):
     def position(self, position):
         """Set feature's order."""
         self.__position = position
-
 
     @property
     def is_target(self):

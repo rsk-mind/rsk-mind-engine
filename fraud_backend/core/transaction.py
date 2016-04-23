@@ -18,7 +18,6 @@ class Transaction(object):
         """The size of features of a transaction."""
         self.__size = 0
 
-
     def add_feature(self, feature):
         """Add a feature to the transaction.
 
@@ -27,7 +26,6 @@ class Transaction(object):
 
         self.transaction.append(feature)
         self.__size += 1
-
 
     def get_feature(self, index):
         """Get a feature from transaction.
@@ -55,7 +53,6 @@ class Transaction(object):
                 break
         return target
 
-
     def get_all_features(self):
         return self.transaction
 
@@ -78,12 +75,18 @@ class Transaction(object):
         """Set transaction's id."""
         self.__id = id
 
+    def to_json(self):
+        json_transaction = {}
+        for feature in self.transaction:
+            json_transaction[feature.name] = feature.value
+        return json_transaction
+
     def __repr__(self):
         """Represent a Transaction as a string."""
 
         result = "Transaction id={}\n".format(self.id)
         for index in range(0, self.__size):
-            result += str(self.transaction[index])+"\n"
+            result += str(self.transaction[index]) + "\n"
         result += "Size: {}".format(self.__size)
 
         return result

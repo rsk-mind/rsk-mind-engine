@@ -3,25 +3,28 @@ import numpy as np
 from .fraud_score_engine import FraudScoreEngine
 from ..core.classification_result import ClassificationResult
 
+
 class XgboostScoreEngine(FraudScoreEngine):
 
     def __init__(self):
         # default parameters
         self.params = {
-            'eta': 0.15,
+            'eta': 0.4,
             'objective': 'binary:logistic',
-            'max_depth': 5,
+            'max_depth': 6,
             'subsample': 0.5,
             'eval_metric': 'auc',
-            'silent': 1,
+            'nthread': 4,
+            'silent': 1
         }
         # default number of rounds
         self.num_rounds = 300
         self.training_data = []
         self.training_numpy_data = None
         self.training_numpy_labels = None
-        self.trained_model = None
+        self.booster = None
         self.test_data = []
+        self.model_directory = "xgb_model.bin"
 
     def set_training_data(self, training_data):
         self.training_data = training_data
@@ -44,16 +47,30 @@ class XgboostScoreEngine(FraudScoreEngine):
 
     def train(self):
         # DMatrix
-        dtrain = xgb.DMatrix(self.training_numpy_data, self.training_numpy_labels)
+        dtrain = xgb.DMatrix(self.training_numpy_data,
+                             self.training_numpy_labels)
         # train model
-        self.trained_model = xgb.train(self.params, dtrain, self.num_rounds)
+        self.booster = xgb.train(self.params, dtrain, self.num_rounds)
+        self.booster.save_model(self.model_directory)
 
     def classify(self, transaction_instance):
         """Classify an unlabeled transaction."""
+
+        # get predictor values
         predictors = transaction_instance.get_predictors_values()
-        predictors_numpy = np.array(predictors)
+        arr = []
+        arr.append(predictors)
+        predictors_numpy = np.array(arr)
         predictors_dmatrix = xgb.DMatrix(predictors_numpy)
-        fraud_score = self.trained_model.predict(predictors_dmatrix)
+
+        if self.booster is None:
+            # init model
+            self.booster = xgb.Booster({'nthread': 4})
+            # load model
+            self.booster.load_model(self.model_directory)
+
+        numpy_array_result = self.booster.predict(predictors_dmatrix)
+        fraud_score = numpy_array_result[0]
         result = ClassificationResult('SUSPICIOUS', fraud_score)
         return result
 

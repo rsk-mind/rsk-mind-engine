@@ -1,5 +1,6 @@
 import geoip2.database
 
+
 class GeoipCountryWrapper(object):
 
     """Wrapper for countries in geoip2.
@@ -14,7 +15,7 @@ class GeoipCountryWrapper(object):
         self.reader = geoip2.database.Reader(
             './fraud_backend/countries_db/GeoLite2-Country.mmdb'
         )
-        #an array of tuples (country.geoname_id, country.iso_code)
+        # an array of tuples (country.geoname_id, country.iso_code)
         self.countries_list = []
 
     def country(self, ip):

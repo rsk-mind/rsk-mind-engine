@@ -4,6 +4,7 @@ from ..basic_features_config import basic_features_list
 from .feature import Feature
 from .transaction import Transaction
 
+
 class RandomGenerator(object):
 
     """Random generator class.
