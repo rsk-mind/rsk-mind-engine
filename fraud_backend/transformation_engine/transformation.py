@@ -115,6 +115,13 @@ class Transformation(object):
         value=amount, is_target=False)
         transformed.add_feature(amount_feature)
 
+        # target/class/outcome
+        if transaction_row.has_key('outcome'):
+            target = 1 if transaction_row['outcome']==True else 0
+            target_feature = Feature(name='TARGET', position=10,
+            value=target, is_target=True)
+            transformed.add_feature('target_feature')
+
         return transformed
 
     @classmethod
