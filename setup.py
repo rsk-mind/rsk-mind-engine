@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+from distutils.core import setup
+
 __version__ = "0.1.0"
 
 setup(

@@ -1,5 +1,6 @@
 import xgboost as xgb
 import numpy as np
+import os
 from .fraud_score_engine import FraudScoreEngine
 from ..core.classification_result import ClassificationResult
 
@@ -24,7 +25,7 @@ class XgboostScoreEngine(FraudScoreEngine):
         self.training_numpy_labels = None
         self.booster = None
         self.test_data = []
-        self.model_directory = "xgb_model.bin"
+        self.model_directory = os.path.join(os.getcwd(), "xgb_model.bin")
 
     def set_training_data(self, training_data):
         self.training_data = training_data
@@ -52,6 +53,7 @@ class XgboostScoreEngine(FraudScoreEngine):
         # train model
         self.booster = xgb.train(self.params, dtrain, self.num_rounds)
         self.booster.save_model(self.model_directory)
+        print "Model saved in {}".format(self.model_directory)
 
     def classify(self, transaction_instance):
         """Classify an unlabeled transaction."""
@@ -68,6 +70,7 @@ class XgboostScoreEngine(FraudScoreEngine):
             self.booster = xgb.Booster({'nthread': 4})
             # load model
             self.booster.load_model(self.model_directory)
+            print "Model loaded from {}".format(self.model_directory)
 
         numpy_array_result = self.booster.predict(predictors_dmatrix)
         fraud_score = numpy_array_result[0]
