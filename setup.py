@@ -12,9 +12,9 @@ setup(
     author='RSK Project',
     author_email='',
     license='MIT',
-    packages=['fraud_backend'],
+    packages=['fraud_backend', 'fraud_backend.core', 'fraud_backend.api', 'fraud_backend.transformation_engine', 'fraud_backend.fraud_score_engine'],
     # dependent packages
-        install_requires=[
+    install_requires=[
             'numpy',
             'scipy',
             'xgboost==0.4a30',

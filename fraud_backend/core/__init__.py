@@ -10,7 +10,7 @@ from .status_type import StatusType
 from .transaction_type import TransactionType
 from .time_period import TimePeriod
 from .geoip_country_wrapper import GeoipCountryWrapper
-from .transformation import Transformation
+from ..transformation_engine.transformation import Transformation
 
 __all__ = ('Feature', 'Transaction', 'Insight', 'ClassificationResult',
            'FeatureType', 'RandomGenerator', 'StatusType', 'TransactionType',
