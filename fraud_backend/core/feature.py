@@ -1,3 +1,6 @@
+from .feature_type import FeatureType
+
+
 class Feature(object):
     """This class describes a feature.
 
@@ -8,8 +11,9 @@ class Feature(object):
 
     """
 
-    def __init__(self, description = None, kind = None,
-                 name = None, value = None, position = None):
+    def __init__(self, description=None, kind=None,
+                 name=None, value=None, position=None,
+                 is_target=None):
         """Create a new Feature object.
 
         :param description: a text description of feature
@@ -17,7 +21,13 @@ class Feature(object):
         :param name: name of feature
         :param value: value of feature
         :param position: position of feature inside a transaction
-
+        :param is_target: shows if feature is target variable or predictor
+        :type description: str
+        :type kind: int
+        :type name: str
+        :type value: float
+        :type position: int
+        :type is_target: bool
         """
 
         self.description = description
@@ -25,7 +35,7 @@ class Feature(object):
         self.name = name
         self.value = value
         self.position = position
-
+        self.is_target = is_target
 
     @property
     def description(self):
@@ -37,7 +47,6 @@ class Feature(object):
         """Set feature's description."""
         self.__description = description
 
-
     @property
     def kind(self):
         """Return the feature's type."""
@@ -46,8 +55,10 @@ class Feature(object):
     @kind.setter
     def kind(self, kind):
         """Set feature's type."""
-        self.__kind = kind
-
+        if kind in FeatureType.types.keys():
+            self.__kind = kind
+        else:
+            self.kind = FeatureType.BINARY
 
     @property
     def name(self):
@@ -56,8 +67,8 @@ class Feature(object):
 
     @name.setter
     def name(self, name):
+        """Set feature's name."""
         self.__name = name
-
 
     @property
     def value(self):
@@ -69,7 +80,6 @@ class Feature(object):
         """Set feature's value."""
         self.__value = value
 
-
     @property
     def position(self):
         """Return the feature's order."""
@@ -80,8 +90,19 @@ class Feature(object):
         """Set feature's order."""
         self.__position = position
 
+    @property
+    def is_target(self):
+        """Return true if feature is a target variable."""
+        return self.__is_target
+
+    @is_target.setter
+    def is_target(self, is_target):
+        """Set feature's state."""
+        self.__is_target = is_target
+
     def __repr__(self):
         """Represent a feature as a string."""
-        return "Description: {}, Type: {}, Name: {}, Value: {}, Order: {}".format(
-            self.description, self.kind, self.name, self.value, self.position
+        return "Description: {}, Type: {}, Name: {}, Value: {}, Order: {}, Target Variable: {}".format(
+            self.description, FeatureType.types[self.kind],
+            self.name, self.value, self.position, self.is_target
         )

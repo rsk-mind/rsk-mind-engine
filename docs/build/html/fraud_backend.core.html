@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>fraud_backend.core package &mdash; fraud_backend 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="fraud_backend 0.1 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fraud-backend-core-package">
+<h1>fraud_backend.core package<a class="headerlink" href="#fraud-backend-core-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-fraud_backend.core.classification_result">
+<span id="fraud-backend-core-classification-result-module"></span><h2>fraud_backend.core.classification_result module<a class="headerlink" href="#module-fraud_backend.core.classification_result" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="fraud_backend.core.classification_result.ClassificationResult">
+<em class="property">class </em><code class="descclassname">fraud_backend.core.classification_result.</code><code class="descname">ClassificationResult</code><span class="sig-paren">(</span><em>label=None</em>, <em>score=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/classification_result.html#ClassificationResult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.classification_result.ClassificationResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>This class describes the classification result.</p>
+<p>It basically consists of a label such as
+&#8216;FRAUD / NOT_FRAUD&#8217; and a value/score that is a
+probability of the predicted label.</p>
+<dl class="attribute">
+<dt id="fraud_backend.core.classification_result.ClassificationResult.label">
+<code class="descname">label</code><a class="headerlink" href="#fraud_backend.core.classification_result.ClassificationResult.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the label.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.classification_result.ClassificationResult.score">
+<code class="descname">score</code><a class="headerlink" href="#fraud_backend.core.classification_result.ClassificationResult.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the score.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fraud_backend.core.feature">
+<span id="fraud-backend-core-feature-module"></span><h2>fraud_backend.core.feature module<a class="headerlink" href="#module-fraud_backend.core.feature" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="fraud_backend.core.feature.Feature">
+<em class="property">class </em><code class="descclassname">fraud_backend.core.feature.</code><code class="descname">Feature</code><span class="sig-paren">(</span><em>description=None</em>, <em>kind=None</em>, <em>name=None</em>, <em>value=None</em>, <em>position=None</em>, <em>is_target=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/feature.html#Feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.feature.Feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>This class describes a feature.</p>
+<p>A Feature is essentially an attribute of a more
+concrete data collection that is called Transaction.
+The characteristics of the Feature class are described
+bellow.</p>
+<dl class="attribute">
+<dt id="fraud_backend.core.feature.Feature.description">
+<code class="descname">description</code><a class="headerlink" href="#fraud_backend.core.feature.Feature.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature&#8217;s description.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.feature.Feature.is_target">
+<code class="descname">is_target</code><a class="headerlink" href="#fraud_backend.core.feature.Feature.is_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if feature is a target variable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.feature.Feature.kind">
+<code class="descname">kind</code><a class="headerlink" href="#fraud_backend.core.feature.Feature.kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature&#8217;s type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.feature.Feature.name">
+<code class="descname">name</code><a class="headerlink" href="#fraud_backend.core.feature.Feature.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature&#8217;s name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.feature.Feature.position">
+<code class="descname">position</code><a class="headerlink" href="#fraud_backend.core.feature.Feature.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature&#8217;s order.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.feature.Feature.value">
+<code class="descname">value</code><a class="headerlink" href="#fraud_backend.core.feature.Feature.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature&#8217;s value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fraud_backend.core.insight">
+<span id="fraud-backend-core-insight-module"></span><h2>fraud_backend.core.insight module<a class="headerlink" href="#module-fraud_backend.core.insight" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="fraud_backend.core.insight.Insight">
+<em class="property">class </em><code class="descclassname">fraud_backend.core.insight.</code><code class="descname">Insight</code><span class="sig-paren">(</span><em>description=None</em>, <em>name=None</em>, <em>value=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/insight.html#Insight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.insight.Insight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>This class describes an insight.</p>
+<p>An insight may be a statistical metric
+calculated from a transaction or any other
+information about the transaction that is
+considered to be important.</p>
+<dl class="attribute">
+<dt id="fraud_backend.core.insight.Insight.description">
+<code class="descname">description</code><a class="headerlink" href="#fraud_backend.core.insight.Insight.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the insight&#8217;s description.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.insight.Insight.name">
+<code class="descname">name</code><a class="headerlink" href="#fraud_backend.core.insight.Insight.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the insight&#8217;s name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.insight.Insight.value">
+<code class="descname">value</code><a class="headerlink" href="#fraud_backend.core.insight.Insight.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the insight&#8217;s value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fraud_backend.core.transaction">
+<span id="fraud-backend-core-transaction-module"></span><h2>fraud_backend.core.transaction module<a class="headerlink" href="#module-fraud_backend.core.transaction" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="fraud_backend.core.transaction.Transaction">
+<em class="property">class </em><code class="descclassname">fraud_backend.core.transaction.</code><code class="descname">Transaction</code><a class="reference internal" href="_modules/fraud_backend/core/transaction.html#Transaction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.transaction.Transaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>This class describes a Transaction.</p>
+<p>A Transaction is the most important data source
+and it is expressed as a list of features.
+The characteristics of the Transaction class are described
+bellow.</p>
+<dl class="method">
+<dt id="fraud_backend.core.transaction.Transaction.add_feature">
+<code class="descname">add_feature</code><span class="sig-paren">(</span><em>feature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/transaction.html#Transaction.add_feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.transaction.Transaction.add_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a feature to the transaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature</strong> &#8211; the feature object to be added to a transaction</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="fraud_backend.core.transaction.Transaction.get_feature">
+<code class="descname">get_feature</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/transaction.html#Transaction.get_feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.transaction.Transaction.get_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a feature from transaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> &#8211; the index of the feature object to be retrieved</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a feature</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#fraud_backend.core.Feature" title="fraud_backend.core.Feature">Feature</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.transaction.Transaction.id">
+<code class="descname">id</code><a class="headerlink" href="#fraud_backend.core.transaction.Transaction.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of features of a transaction.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fraud_backend.core.transaction.Transaction.number_of_features">
+<code class="descname">number_of_features</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/transaction.html#Transaction.number_of_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.transaction.Transaction.number_of_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of features.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of features of a transaction</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.transaction.Transaction.transaction">
+<code class="descname">transaction</code><em class="property"> = None</em><a class="headerlink" href="#fraud_backend.core.transaction.Transaction.transaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the transaction.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fraud_backend.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fraud_backend.core" title="Permalink to this headline">¶</a></h2>
+<p>Init file of <code class="docutils literal"><span class="pre">core</span></code> package.</p>
+<dl class="class">
+<dt id="fraud_backend.core.Feature">
+<em class="property">class </em><code class="descclassname">fraud_backend.core.</code><code class="descname">Feature</code><span class="sig-paren">(</span><em>description=None</em>, <em>kind=None</em>, <em>name=None</em>, <em>value=None</em>, <em>position=None</em>, <em>is_target=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/feature.html#Feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.Feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>This class describes a feature.</p>
+<p>A Feature is essentially an attribute of a more
+concrete data collection that is called Transaction.
+The characteristics of the Feature class are described
+bellow.</p>
+<dl class="attribute">
+<dt id="fraud_backend.core.Feature.description">
+<code class="descname">description</code><a class="headerlink" href="#fraud_backend.core.Feature.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature&#8217;s description.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.Feature.is_target">
+<code class="descname">is_target</code><a class="headerlink" href="#fraud_backend.core.Feature.is_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if feature is a target variable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.Feature.kind">
+<code class="descname">kind</code><a class="headerlink" href="#fraud_backend.core.Feature.kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature&#8217;s type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.Feature.name">
+<code class="descname">name</code><a class="headerlink" href="#fraud_backend.core.Feature.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature&#8217;s name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.Feature.position">
+<code class="descname">position</code><a class="headerlink" href="#fraud_backend.core.Feature.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature&#8217;s order.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.Feature.value">
+<code class="descname">value</code><a class="headerlink" href="#fraud_backend.core.Feature.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature&#8217;s value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="fraud_backend.core.Transaction">
+<em class="property">class </em><code class="descclassname">fraud_backend.core.</code><code class="descname">Transaction</code><a class="reference internal" href="_modules/fraud_backend/core/transaction.html#Transaction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.Transaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>This class describes a Transaction.</p>
+<p>A Transaction is the most important data source
+and it is expressed as a list of features.
+The characteristics of the Transaction class are described
+bellow.</p>
+<dl class="method">
+<dt id="fraud_backend.core.Transaction.add_feature">
+<code class="descname">add_feature</code><span class="sig-paren">(</span><em>feature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/transaction.html#Transaction.add_feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.Transaction.add_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a feature to the transaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature</strong> &#8211; the feature object to be added to a transaction</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="fraud_backend.core.Transaction.get_feature">
+<code class="descname">get_feature</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/transaction.html#Transaction.get_feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.Transaction.get_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a feature from transaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> &#8211; the index of the feature object to be retrieved</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a feature</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#fraud_backend.core.Feature" title="fraud_backend.core.Feature">Feature</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.Transaction.id">
+<code class="descname">id</code><a class="headerlink" href="#fraud_backend.core.Transaction.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get transaction&#8217;s id.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fraud_backend.core.Transaction.number_of_features">
+<code class="descname">number_of_features</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/transaction.html#Transaction.number_of_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.Transaction.number_of_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of features.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of features of a transaction</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="fraud_backend.core.Insight">
+<em class="property">class </em><code class="descclassname">fraud_backend.core.</code><code class="descname">Insight</code><span class="sig-paren">(</span><em>description=None</em>, <em>name=None</em>, <em>value=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/insight.html#Insight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.Insight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>This class describes an insight.</p>
+<p>An insight may be a statistical metric
+calculated from a transaction or any other
+information about the transaction that is
+considered to be important.</p>
+<dl class="attribute">
+<dt id="fraud_backend.core.Insight.description">
+<code class="descname">description</code><a class="headerlink" href="#fraud_backend.core.Insight.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the insight&#8217;s description.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.Insight.name">
+<code class="descname">name</code><a class="headerlink" href="#fraud_backend.core.Insight.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the insight&#8217;s name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.Insight.value">
+<code class="descname">value</code><a class="headerlink" href="#fraud_backend.core.Insight.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the insight&#8217;s value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="fraud_backend.core.ClassificationResult">
+<em class="property">class </em><code class="descclassname">fraud_backend.core.</code><code class="descname">ClassificationResult</code><span class="sig-paren">(</span><em>label=None</em>, <em>score=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fraud_backend/core/classification_result.html#ClassificationResult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fraud_backend.core.ClassificationResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>This class describes the classification result.</p>
+<p>It basically consists of a label such as
+&#8216;FRAUD / NOT_FRAUD&#8217; and a value/score that is a
+probability of the predicted label.</p>
+<dl class="attribute">
+<dt id="fraud_backend.core.ClassificationResult.label">
+<code class="descname">label</code><a class="headerlink" href="#fraud_backend.core.ClassificationResult.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the label.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="fraud_backend.core.ClassificationResult.score">
+<code class="descname">score</code><a class="headerlink" href="#fraud_backend.core.ClassificationResult.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the score.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">fraud_backend.core package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-fraud_backend.core.classification_result">fraud_backend.core.classification_result module</a></li>
+<li><a class="reference internal" href="#module-fraud_backend.core.feature">fraud_backend.core.feature module</a></li>
+<li><a class="reference internal" href="#module-fraud_backend.core.insight">fraud_backend.core.insight module</a></li>
+<li><a class="reference internal" href="#module-fraud_backend.core.transaction">fraud_backend.core.transaction module</a></li>
+<li><a class="reference internal" href="#module-fraud_backend.core">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/fraud_backend.core.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, RSK Project.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/fraud_backend.core.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

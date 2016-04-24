@@ -13,8 +13,10 @@ class Transaction(object):
 
         """The list of features."""
         self.transaction = []
+        """The id of the transaction."""
+        self.id = None
+        """The size of features of a transaction."""
         self.__size = 0
-
 
     def add_feature(self, feature):
         """Add a feature to the transaction.
@@ -25,19 +27,36 @@ class Transaction(object):
         self.transaction.append(feature)
         self.__size += 1
 
-
     def get_feature(self, index):
         """Get a feature from transaction.
 
         :param index: the index of the feature object to be retrieved
         :returns: a feature
-        :rtype: Feature from
+        :rtype: Feature
         """
 
         if index >= 0 and index < self.__size:
             return self.transaction[index]
 
+    def get_predictors_values(self):
+        predictors = []
+        for feature in self.transaction:
+            if not feature.is_target:
+                predictors.append(feature.value)
+        return predictors
 
+    def get_target_value(self):
+        target = None
+        for feature in self.transaction:
+            if feature.is_target:
+                target = feature.value
+                break
+        return target
+
+    def get_all_features(self):
+        return self.transaction
+
+    @property
     def number_of_features(self):
         """Get the number of features.
 
@@ -46,12 +65,28 @@ class Transaction(object):
         """
         return self.__size
 
+    @property
+    def id(self):
+        """Get transaction's id."""
+        return self.__id
+
+    @id.setter
+    def id(self, id):
+        """Set transaction's id."""
+        self.__id = id
+
+    def to_json(self):
+        json_transaction = {}
+        for feature in self.transaction:
+            json_transaction[feature.name] = feature.value
+        return json_transaction
+
     def __repr__(self):
         """Represent a Transaction as a string."""
 
-        result = ""
+        result = "Transaction id={}\n".format(self.id)
         for index in range(0, self.__size):
-            result += str(self.transaction[index])+"\n"
+            result += str(self.transaction[index]) + "\n"
         result += "Size: {}".format(self.__size)
 
         return result
