@@ -18,7 +18,8 @@ setup(
             'numpy',
             'scipy',
             'xgboost==0.4a30',
-            'geoip2'
+            'geoip2',
+            'scikit-learn'
     ],
     extras_require={
             'docs': ['sphinx']
